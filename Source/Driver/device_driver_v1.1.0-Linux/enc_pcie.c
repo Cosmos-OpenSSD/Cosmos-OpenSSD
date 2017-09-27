@@ -815,7 +815,7 @@ MODULE_DEVICE_TABLE(pci, enc_pcie_pci_tbl);
 
 
 
-static int __devinit
+static int
 enc_pcie_init_one(struct pci_dev *pDev, const struct pci_device_id *id)
 {
 	int result = -ENOMEM;
@@ -889,7 +889,7 @@ err_kmalloc_sDev:
 }
 
 
-static void __devexit
+static void
 enc_pcie_remove_one(struct pci_dev *pDev)
 {
 	struct ssd_dev *sDev;
@@ -960,7 +960,7 @@ static struct pci_driver enc_pcie_pci_driver = {
 
 
 
-	.remove		= __devexit_p(enc_pcie_remove_one),
+	.remove		= (enc_pcie_remove_one),
 	//.suspend	= enc_pcie_suspend,
 	//.resume	= enc_pcie_resume,
 	//.shutdown	= enc_pcie_shutdown,
